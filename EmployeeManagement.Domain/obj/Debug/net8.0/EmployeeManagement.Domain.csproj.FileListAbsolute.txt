@@ -1,0 +1,12 @@
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\bin\Debug\net8.0\EmployeeManagement.Domain.deps.json
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\bin\Debug\net8.0\EmployeeManagement.Domain.dll
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\bin\Debug\net8.0\EmployeeManagement.Domain.pdb
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.csproj.AssemblyReference.cache
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.AssemblyInfoInputs.cache
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.AssemblyInfo.cs
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.dll
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\refint\EmployeeManagement.Domain.dll
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.pdb
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\ref\EmployeeManagement.Domain.dll
