@@ -128,6 +128,7 @@ C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\EmployeeManagement.A
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\EmployeeManagement.API.csproj.CoreCompileInputs.cache
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\EmployeeManagement.API.MvcApplicationPartsAssemblyInfo.cs
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\EmployeeManagement.API.MvcApplicationPartsAssemblyInfo.cache
+C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\EmployeeManagement.API.sourcelink.json
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\scopedcss\bundle\EmployeeManagement.API.styles.css
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\staticwebassets.build.json
 C:\Uma\EmployeeMgmt\EmployeeManagement.API\obj\Debug\net8.0\staticwebassets.development.json

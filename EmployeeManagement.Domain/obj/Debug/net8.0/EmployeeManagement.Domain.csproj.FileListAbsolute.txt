@@ -6,6 +6,7 @@ C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagemen
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.AssemblyInfoInputs.cache
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.AssemblyInfo.cs
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.csproj.CoreCompileInputs.cache
+C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.sourcelink.json
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.dll
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\refint\EmployeeManagement.Domain.dll
 C:\Uma\EmployeeMgmt\EmployeeManagement.Domain\obj\Debug\net8.0\EmployeeManagement.Domain.pdb
