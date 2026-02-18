@@ -9,5 +9,5 @@ jobs:
 
         steps:
             - name: Reading Meta Data
-              run: echo "${{ github.repository }}"
+              run: echo "${{toJson(github) }}"
          
