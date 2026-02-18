@@ -31,8 +31,20 @@ jobs:
             - name: "Checking the value of value1 and value2" 
 
               run: |
-                  echo " value passed from output: ${{steps.assign-value.outputs.value1}}"
+                  echo "value passed from output: ${{steps.assign-value.outputs.value1}}"
                   echo "value passed from env: $value2"
+
+
+    Checkingthevalueofvalue1andvalue2:
+        runs-on: ubuntu-24.04    
+
+        steps:
+            - name: Checking the value of value1 and value2
+              run: |
+                echo "value passed from output: ${{steps.assign-value.outputs.value1}}"
+                echo "value passed from env: $value2" 
+                
+
 
                
 
