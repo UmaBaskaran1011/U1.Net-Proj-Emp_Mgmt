@@ -1,8 +1,7 @@
 name: passing Data to another
 
 on:  
-   workflow_dispatch:
-       
+   push:
 
 jobs:
     read-metadata:
