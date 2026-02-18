@@ -1,0 +1,11 @@
+name: Hello World
+
+on: push
+
+
+jobs:
+  say-hello-inline-bash:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Say Hello
+        run: echo "Hello from an inline bash script in a GitHub Action Workflow!"
