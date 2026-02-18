@@ -41,7 +41,7 @@ jobs:
         steps:
             - name: Checking the value of value1 and value2
               run: |
-                echo "value passed from output: ${{needs.assign-value.outputs.value1}}"
+                echo "value passed from output: ${{needs.settingvaluetovariable.outputs.value1}}"
                 echo "value passed from env: $value2" 
                 
 
