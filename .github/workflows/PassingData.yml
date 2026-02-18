@@ -1,7 +1,8 @@
 name: passing Data to another
 
 on:  
-   push:
+   workflow_dispatch:
+       
 
 jobs:
     read-metadata:
@@ -10,4 +11,30 @@ jobs:
         steps:
             - name: Reading Meta Data
               run: echo "${{toJson(github) }}"
-         
+
+    settingvaluetovariable:
+        runs-on: ubuntu-24.04
+
+        outputs: 
+            variable: ${{steps.assign-value.outputs.value1}}
+
+        steps:
+            - name: assign value to variable 
+              id: assign-value
+
+              run: |
+                echo "value1= apple" >> "$GITHUB_OUTPUT"
+                echo "value2= mango" >> "$GITHUB_ENV"
+                # passingvalues between steps or jobs using outputs
+
+
+            - name: "Checking the value of value1 and value2" 
+
+              run: |
+                  echo " value passed from output: ${{steps.assign-value.outputs.value1}}"
+                  echo "value passed from env: $value2"
+
+               
+
+
+
