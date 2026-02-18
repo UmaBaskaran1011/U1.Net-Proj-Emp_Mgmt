@@ -1,10 +1,13 @@
-name: passingDatatoanother
+name: passing Data to another
+
 on:  
-   workflow_dispatch:
+   push:
+
 jobs:
     read-metadata:
         runs-on: ubuntu-24.04
+
         steps:
             - name: Reading Meta Data
-              run : echo ${{github.repository}}
+              run: echo "${{ github.repository }}"
          
