@@ -28,7 +28,7 @@ jobs:
                dotnet publish -c Release -o publish
                echo publish
             - name: Upload Artifact
-              uses: action/upload-artifact@v4
+              uses: actions/upload-artifact@v4
               with: 
                 name: app
                 path: publish
