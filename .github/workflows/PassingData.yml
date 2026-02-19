@@ -30,7 +30,7 @@ jobs:
             - name: "Checking the value of value1 and value2" 
 
               run: |
-                  echo "value passed from output: ${{steps.assign-value.outputs.variable}}"
+                  echo "value passed from output: ${{steps.assign-value.outputs.value1}}"
                   echo "value passed from env: $value2"
 
 
