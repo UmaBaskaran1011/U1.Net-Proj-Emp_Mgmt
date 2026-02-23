@@ -61,4 +61,4 @@ jobs:
                Copy-Item -Recurse downloaded\* C:\DeployApp
             - name: Start-Application
               run: |
-                 Start-Process "dotnet" "C:\DeployApp\EmployeeManagement.API.dll"
+                 Start-Process "dotnet" "C:\DeployApp\EmployeeManagement.API.dll --urls= http://localhost:5050"
