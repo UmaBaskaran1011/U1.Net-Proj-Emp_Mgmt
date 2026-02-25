@@ -9,7 +9,7 @@ namespace EmployeeManagement.Domain.Service
     {
 
         private readonly IEmployeeRepository _repo;
-        public EmployeeService (IEmployeeRepository repo)
+        public EmployeeService (IEmployeeRepository repo )
         {
             _repo = repo;
         }
@@ -26,51 +26,68 @@ namespace EmployeeManagement.Domain.Service
             }
         }
 
-        public async Task<string> AddEmployee(Employee employee)
+        public async Task<Result> AddEmployee(Employee employee)
         {
             try
             {
-                var result = await _repo.AddEmployeeAsync(employee);
-                return "Employee Created";
+                var Added = await _repo.AddEmployeeAsync(employee); 
+                Result result = new Result();
+                if(Added)
+                {
+                    result.IsSuccess = true;
+                    result.Message = employee.Name + "- Employee Created";                  
+                }  
+                return result;                        
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-                throw ;
+                return new Result{ IsSuccess= false, Message= ex.Message } ;
             }
         }
     
        public async Task<object> GetEmployeeById(int id)
         {
             try{
+                Result result = new Result();              
                 if(id<=0)
                 {
-                    return "Invalid Employee Id";
-                }
-                           
+                   return new Result{ IsSuccess= false, Message="Invalid Employee Id"};
+
+                }                           
                 var employee = await _repo.GetEmployeeByIdAsync(id);
-                if(employee == null)
+                if(employee != null)
                 {
-                    return "Employee Not Found";
+                    result.IsSuccess= true;       
+                    result.Message="Employee Data fetched";    
+                    result.Edata =employee;
                 }
-                 return employee;          
+                else
+                {
+                    return new Result{ IsSuccess= false, Message="Employee Not Found"};
+                }                     
+                return result;          
             }
+
             catch(Exception ex)
             {
-               throw new Exception (ex.ToString()); 
+               return new Result{ IsSuccess = false, Message= ex.Message};
             } 
         }
 
-        public async Task<string> UpdateEmployee(int id, Employee emp)
+        public async Task<Result> UpdateEmployee(int id, Employee emp)
         {
             try
             {
+                Result response = new Result();
                 if(id<=0)
                 {
-                    return "Invalid empid";
+                    return new Result{ IsSuccess= false, Message="Invalid Employee Id"};
                 }
                 var existingEmployee= await _repo.GetEmployeeByIdAsync(id);
                 if(existingEmployee == null)
-                {  return "Employee NotFound"; }
+                {  
+                    return new Result{ IsSuccess= false, Message="Employee Not Found"};
+                }
 
                 existingEmployee.Name = emp.Name;
                 existingEmployee.Address = emp.Address;
@@ -78,29 +95,43 @@ namespace EmployeeManagement.Domain.Service
                 existingEmployee.PhoneNo = emp.PhoneNo;
 
                 var result = await  _repo.UpdateEmployeeAsync(existingEmployee);
-
-                return "Employee Details Updated";
+                if(result)
+                {
+                    response.IsSuccess= true;
+                    response.Message="Employee Data Updated";
+                }
+                return response;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-              throw ;
+              return new Result{IsSuccess= false, Message=ex.Message};
             }
             
         }
 
-        public async Task<string> DeleteEmployee (int empid)
+        public async Task<Result> DeleteEmployee (int empid)
         {
-            if(empid<0)
+            try
             {
-                return "Invalid empid";
+                Result response = new Result();
+                if(empid<=0)
+                {
+                    //return new Result{ IsSuccess= false, Message="Invalid Employee Id"};
+                    throw new Exception("Invalid Employee Id");
+                }
+                var employee = await _repo.GetEmployeeByIdAsync(empid);
+
+                if(employee!= null)
+                {
+                    var result = await _repo.DeleteEmployee(employee);
+                    return new Result{IsSuccess= true, Message="Employee Data Deleted"};
+                }
+                else return new Result{IsSuccess= false, Message="Employee Not Found"};
             }
-            var employee = await _repo.GetEmployeeByIdAsync(empid);
-            if(employee!= null)
+             catch(Exception ex)
             {
-            var result = await _repo.DeleteEmployee(employee);
-            return "Employee Deleted";
-            }
-            else return "Employee Not Found ";
+              return new Result{IsSuccess= false, Message=ex.Message};
+            }           
         }
     }
 
