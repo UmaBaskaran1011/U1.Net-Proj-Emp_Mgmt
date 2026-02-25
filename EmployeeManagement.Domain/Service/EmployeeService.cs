@@ -2,6 +2,7 @@ using System.Collections.Specialized;
 using System.Text;
 using EmployeeManagement.Domain.Interface;
 using EmployeeManagement.Domain.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace EmployeeManagement.Domain.Service
 {
@@ -45,7 +46,7 @@ namespace EmployeeManagement.Domain.Service
             }
         }
     
-       public async Task<object> GetEmployeeById(int id)
+       public async Task<Result> GetEmployeeById(int id)
         {
             try{
                 Result result = new Result();              
@@ -113,20 +114,19 @@ namespace EmployeeManagement.Domain.Service
         {
             try
             {
-                Result response = new Result();
                 if(empid<=0)
                 {
                     //return new Result{ IsSuccess= false, Message="Invalid Employee Id"};
-                    throw new Exception("Invalid Employee Id");
+                    throw new InvalidDataException("Invalid Employee Id");
                 }
                 var employee = await _repo.GetEmployeeByIdAsync(empid);
 
                 if(employee!= null)
                 {
-                    var result = await _repo.DeleteEmployee(employee);
+                    await _repo.DeleteEmployee(employee);
                     return new Result{IsSuccess= true, Message="Employee Data Deleted"};
                 }
-                else return new Result{IsSuccess= false, Message="Employee Not Found"};
+                else throw  new KeyNotFoundException ("Employee Not Found");
             }
              catch(Exception ex)
             {

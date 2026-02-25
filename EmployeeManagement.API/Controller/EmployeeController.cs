@@ -35,12 +35,12 @@ namespace EmployeeManagement.API.Controller
         {
             try
             {
-                var result =  await _service.GetEmployeeById(id);
-                if(result.Equals("Invalid Employee Id"))
+                var result =  await _service.GetEmployeeById(id);               
+                if(result.Message == "Invalid Employee Id")
                 {
                     return BadRequest(result);
                 }
-                else if(result.Equals("Employee Not Found"))
+                else if(result.Message == "Employee Not Found")
                 {
                     return NotFound(result);
                 }
@@ -60,6 +60,7 @@ namespace EmployeeManagement.API.Controller
             try
             {
                 Result message = await _service.AddEmployee(employee);
+              
                 return Ok(message);
             }
             catch(Exception ex)
@@ -74,13 +75,12 @@ namespace EmployeeManagement.API.Controller
         {
             try
             {
-                var result = await _service.UpdateEmployee(id, emp);
-
-                if(result.Equals("Employee Not Found"))
+                Result result = await _service.UpdateEmployee(id, emp);                
+                if(result.Message == "Employee Not Found")
                 {
                     return NotFound(result);
                 }
-                else if(result.Equals("Invalid Employee Id"))
+                else if(result.Message == "Invalid Employee Id")
                 {
                     return BadRequest(result);
                 }
@@ -97,12 +97,12 @@ namespace EmployeeManagement.API.Controller
         public async Task<IActionResult> DeleteEmployee(int id)
         {
             try{
-            var message = await _service.DeleteEmployee(id);
-                if(message.Equals("Employee Not Found"))
+                var message = await _service.DeleteEmployee(id);
+                if(message.Message == "Employee Not Found")
                 {
                     return NotFound(message);
                 }
-                else if (message.Equals("Invalid Employee Id"))
+                else if (message.Message == "Invalid Employee Id")
                 {
                     return BadRequest(message);
                 }

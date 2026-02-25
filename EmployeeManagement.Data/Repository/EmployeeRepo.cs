@@ -25,7 +25,7 @@ namespace EmployeeManagement.Data.Repository{
             try
             {
                 _context.Employees.Add(emp);
-               return await _context.SaveChangesAsync() > 0; 
+               return await _context.SaveChangesAsync() > 0;
             }
             catch(Exception ex)
             {
