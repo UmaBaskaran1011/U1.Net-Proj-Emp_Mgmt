@@ -35,14 +35,14 @@ namespace EmployeeManagement.API.Controller
         {
             try
             {
-                 var result =  await _service.GetEmployeeById(id);
-                if(result.Equals("Employee NotFound"))
-                {
-                    return NotFound(result);
-                }
-                if(result.Equals("Invalid empid"))
+                var result =  await _service.GetEmployeeById(id);
+                if(result.Equals("Invalid Employee Id"))
                 {
                     return BadRequest(result);
+                }
+                else if(result.Equals("Employee Not Found"))
+                {
+                    return NotFound(result);
                 }
                 return Ok(result);
             }
@@ -59,15 +59,16 @@ namespace EmployeeManagement.API.Controller
         {
             try
             {
-                var message = await _service.AddEmployee(employee);
+                Result message = await _service.AddEmployee(employee);
                 return Ok(message);
             }
             catch(Exception ex)
             {
-                return StatusCode(500, "Internal Error"+ex.Message);
+                return StatusCode(500, "Internal Error"+ex.Message);              
             }
            
         }
+
         [HttpPut("{id}")]
         public async Task<IActionResult> UpdateEmployee(int id, Employee emp)
         {
@@ -75,11 +76,11 @@ namespace EmployeeManagement.API.Controller
             {
                 var result = await _service.UpdateEmployee(id, emp);
 
-                if(result.Equals("Employee NotFound"))
+                if(result.Equals("Employee Not Found"))
                 {
                     return NotFound(result);
                 }
-                if(result.Equals("Invalid empid"))
+                else if(result.Equals("Invalid Employee Id"))
                 {
                     return BadRequest(result);
                 }
@@ -95,17 +96,22 @@ namespace EmployeeManagement.API.Controller
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteEmployee(int id)
         {
+            try{
             var message = await _service.DeleteEmployee(id);
-
-            if(message.Equals("Employee NotFound"))
-            {
-                return NotFound(message);
+                if(message.Equals("Employee Not Found"))
+                {
+                    return NotFound(message);
+                }
+                else if (message.Equals("Invalid Employee Id"))
+                {
+                    return BadRequest(message);
+                }
+                else return Ok(message);  
             }
-            if(message.Equals("Invalid empid"))
+            catch(Exception ex)
             {
-                return BadRequest(message);
-            }
-            else return Ok(message);           
+                return BadRequest(ex.Message);
+            }         
         }
     }
 }
