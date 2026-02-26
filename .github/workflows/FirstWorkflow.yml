@@ -1,4 +1,6 @@
 name: Hello World
+permissions:
+  contents: read 
 
 on: push
 
