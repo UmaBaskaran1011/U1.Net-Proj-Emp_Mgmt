@@ -45,8 +45,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-        # - language: actions
-        #   build-mode: none
+        - language: actions
+          build-mode: none
         - language: csharp
           build-mode: none
         # CodeQL supports the following values keywords for 'language': 'actions', 'c-cpp', 'csharp', 'go', 'java-kotlin', 'javascript-typescript', 'python', 'ruby', 'rust', 'swift'
@@ -74,9 +74,9 @@ jobs:
         languages: ${{ matrix.language }}
         build-mode: ${{ matrix.build-mode }}
         queries: |
+         security-extended
          security-and-quality
-         github/codeql/csharp-queries@latest
-         github/codeql/csharp-queries/security
+         
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
         # Prefix the list here with "+" to use these queries and those in the config file.
